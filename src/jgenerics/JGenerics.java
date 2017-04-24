@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jgenerics;
+
+import jgenerics.lista.Lista;
+import jgenerics.lista.ListaEncadeada;
 
 /**
  *
@@ -15,20 +13,15 @@ public class JGenerics {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Pilha<String> pilha = new Pilha<>();
-        
-        pilha.push("Haynes");
-        pilha.push("Bruno");
-        pilha.push("Pedro");
-        pilha.push("Lucio");
-        pilha.push("Patrão");
-        
-        System.out.println(pilha.toString());
-        
-        pilha.pop();
-        
-        System.out.println(pilha.toString());
-        
-    }
+        Lista<String> lista = new ListaEncadeada<>();
 
+        lista.push("Marco");
+        lista.push("Mirela");
+        lista.push("Haynes");
+        lista.push("Raiane");
+        
+        System.out.println(lista.toString());
+        System.out.println(lista.pop(1));
+        System.out.println(lista.toString());
+    }
 }
