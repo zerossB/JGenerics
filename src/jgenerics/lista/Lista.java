@@ -13,7 +13,7 @@ public interface Lista<E> {
 
     void push(E element);
 
-    E pop(int index);
+    E pop(int n);
 
     void clear();
 

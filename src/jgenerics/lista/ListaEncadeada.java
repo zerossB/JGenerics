@@ -30,20 +30,36 @@ public class ListaEncadeada<E> implements Lista<E> {
     }
 
     @Override
-    public E pop(int index) {
-        E ele = null;
-        if (index <= count) {
-            No<E> aux = null;
-            No<E> aux1 = topo;
-            for (int i = 0; i < index; i++) {
-                aux = aux1;
-                aux1 = aux1.prox;
+    public E pop(int n) {
+        No<E> noAtual;
+        No<E> noAnterior;
+        noAtual = noAnterior = topo;
+        int contador = 1;
+
+        if (!isEmpty() && n <= size()) {
+            while (contador <= n) {
+                noAnterior = noAtual;
+                noAtual = noAtual.prox;
+                contador++;
             }
-            ele = aux.value;
-            
+        } else {
+            System.err.println("Indice maior que a lista!");
+            return null;
         }
+
+        if (size() == 1) {
+            topo = fim = null;
+        } else {
+            if (noAtual == topo) {
+                topo = noAtual.prox;
+            } else {
+                noAnterior.prox = noAtual.prox;
+            }
+        }
+
         count--;
-        return ele;
+
+        return noAtual.value;
     }
 
     @Override
@@ -80,7 +96,7 @@ public class ListaEncadeada<E> implements Lista<E> {
         return sb.toString();
     }
 
-    private class No<e> {
+    private class No<E> {
 
         E value;
         No<E> prox;
